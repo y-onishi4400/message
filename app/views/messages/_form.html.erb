@@ -1,0 +1,14 @@
+<div class="c-input">
+  <div class="c-input__box"><%= form.text_area :text %></div>
+  <p id="c-validation__text"><span id="c-validation__count-entry">0</span>/140</p>
+</div>
+
+<div class="c-switch">
+  <%= form.label :is_public, class: "c-switch__lable" do %>
+  <%= form.check_box :is_public, :as => :boolean, class: "c-switch__input" %>
+  <span class="c-switch__content"></span>
+  <span class="c-switch__circle"></span>
+  <% end %>
+  <p class="c-switch__text">公開する</p>
+</div>
+

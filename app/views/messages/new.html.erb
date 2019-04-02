@@ -1,0 +1,4 @@
+<%= form_for [@message], url: messages_path do |form| %>
+<%= render "form", form: form %>
+<p><%= form.submit id: "c-validation__entry" %></p>
+<% end %>

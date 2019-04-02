@@ -1,1 +1,9 @@
 <h1>messges</h1>
+
+<% if @messages.present? %>
+  <% @messages.each do |message| %>
+    <%= link_to message_path(message), class: "c-message__item__link" do %>
+    <%= message.text %>
+    <% end %>
+  <% end %>
+<% end %>
