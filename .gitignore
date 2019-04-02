@@ -25,3 +25,13 @@
 
 # Ignore master key for decrypting credentials and more.
 /config/master.key
+
+public/uploads/*
+
+.DS_Store
+.env
+Gemfile.lock
+unicorn.rb
+
+/node_modules
+/frontend/node_modules/
