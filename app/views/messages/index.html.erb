@@ -5,7 +5,10 @@
   <% if !message.is_public %>未公開<% end %>
     <%= link_to message_path(message), class: "c-message__item__link" do %>
     <%= message.text %><br>
+
+    <% if user_signed_in? %>
     <%= link_to "編集する", edit_message_path(message) %>
+    <% end %>
     <% end %>
   <% end %>
 <% end %>

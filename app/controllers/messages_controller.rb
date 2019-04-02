@@ -1,6 +1,10 @@
 class MessagesController < ApplicationController
   def index
-    @messages = Message.order(created_at: :desc).paginate(page: params[:page], per_page: 10)
+    if user_signed_in?
+      @messages = Message.order(created_at: :desc).paginate(page: params[:page], per_page: 10)
+    else
+      @messages = Message.where(is_public: true).order(created_at: :desc).paginate(page: params[:page], per_page: 10)
+    end
   end
 
   # 記事の詳細
