@@ -1,7 +1,7 @@
 class MessagesController < ApplicationController
   def index
     if user_signed_in?
-      @messages = Message.order(created_at: :desc).paginate(page: params[:page], per_page: 10)
+      @messages = current_user.messages.order(created_at: :desc).paginate(page: params[:page], per_page: 10)
     else
       @messages = Message.where(is_public: true).order(created_at: :desc).paginate(page: params[:page], per_page: 10)
     end
@@ -14,16 +14,19 @@ class MessagesController < ApplicationController
 
   # 新規登録フォーム
   def new
+    @user = User.find_by(id: current_user)
     @message = Message.new
   end
 
   # 編集
   def edit
+    @user = User.find_by(id: current_user)
     @message = Message.find_by(url_token: params[:url_token])
   end
 
   def create
     @message = Message.new(message_params)
+    @message.author = User.find_by(id: current_user)
 
     # ハッシュを保存
     @message.url_token = SecureRandom.hex(10)
@@ -62,7 +65,7 @@ class MessagesController < ApplicationController
   private
 
   def message_params
-    params.require(:message).permit(:url_token, :text, :image, :is_public)
+    params.require(:message).permit(:user_id, :url_token, :text, :image, :is_public)
   end
 
   # ⑨メソッド追加（画像生成）
