@@ -1,4 +1,4 @@
-<%= form_for [@@message], url: user_message_path do |form| %>
+<%= form_for [@message], url: message_path do |form| %>
 <%= render "form", form: form %>
 <div class="c-btn--accent u-mt25">
   <%= form.submit id: "c-validation__submit" %>

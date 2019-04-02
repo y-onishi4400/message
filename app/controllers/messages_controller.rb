@@ -1,6 +1,6 @@
 class MessagesController < ApplicationController
   def index
-    @messages = Message.where(is_public: false).order(created_at: :desc).paginate(page: params[:page], per_page: 10)
+    @messages = Message.where(is_public: true).order(created_at: :desc).paginate(page: params[:page], per_page: 10)
   end
 
   # 記事の詳細
