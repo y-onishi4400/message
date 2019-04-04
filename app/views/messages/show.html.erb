@@ -8,6 +8,14 @@
 			<% if @message.image.present? %>
 	    <%= image_tag @message.image, alt: @message.text %>
 	    <% end %>
+			<a class="p-sns--twitter"
+	    href="http://twitter.com/intent/tweet
+	    ?url=<%= root_url(only_path: false) %>messages/<%= message.url_token %>
+	    &text=<%= message.text %>
+	    &hashtags=example%2Cdemo"
+	    onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=300,width=600');return false;" sl-processed="1">
+	    tweet</a>
+
 		</div>
 	</div>
 </div>
