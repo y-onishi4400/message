@@ -4,7 +4,9 @@
   <% @messages.each do |message| %>
   <% if !message.is_public %>未公開<% end %>
     <%= link_to message_path(message), class: "c-message__item__link" do %>
-    <%= message.text %><br>
+    <% if message.image.present? %>
+    <%= image_tag message.image, alt: message.text %>
+    <% end %>
 
     <% if current_user == message.author %>
     <%= link_to "編集する", edit_message_path(message) %>

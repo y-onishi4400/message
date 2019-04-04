@@ -31,12 +31,12 @@ class MessagesController < ApplicationController
     # ハッシュを保存
     @message.url_token = SecureRandom.hex(10)
 
-    # if Message.last.present?
-    #   next_id = Message.last.id + 1
-    # else
-    #   next_id = 1
-    # end
-    # make_picture(next_id)
+    if Message.last.present?
+      next_id = Message.last.id + 1
+    else
+      next_id = 1
+    end
+    make_picture(next_id)
 
     if @message.save
       redirect_to controller: :messages, action: :index, notice: '作成しました。'
@@ -72,7 +72,7 @@ class MessagesController < ApplicationController
   def make_picture(id)
     sentense = ""
     # ⑨-1 改行を消去
-    content = @message.message_text.gsub(/\r\n|\r|\n/," ")
+    content = @message.text.gsub(/\r\n|\r|\n/," ")
 
     # ⑨-2 contentの文字数に応じて条件分岐
     if content.length <= 28 then
@@ -148,17 +148,17 @@ class MessagesController < ApplicationController
       bucket = storage.directories.get(ENV['AWS_S3_BUCKET'])
       # ⑨-15 保存するディレクトリ、ファイル名の指定（ファイル名は投稿id.pngとしています）
       image_name = SecureRandom.hex(10)
-      png_path = 'uploads/entry/' + image_name + '.png'
+      png_path = 'uploads/' + image_name + '.png'
       image_uri = image.path
       file = bucket.files.create(key: png_path, public: true, body: open(image_uri))
-      @message.message_image = 'https://s3-ap-northeast-1.amazonaws.com/' + ENV['AWS_S3_BUCKET'] + "/" + png_path
+      @message.image = 'https://s3-ap-northeast-1.amazonaws.com/' + ENV['AWS_S3_BUCKET'] + "/" + png_path
     when 'development'
       bucket = storage.directories.get(ENV['AWS_S3_BUCKET'])
       image_name = SecureRandom.hex(10)
-      png_path = 'uploads/entry/' + image_name + '.png'
+      png_path = 'uploads/' + image_name + '.png'
       image_uri = image.path
       file = bucket.files.create(key: png_path, public: true, body: open(image_uri))
-      @message.message_image = 'https://s3-ap-northeast-1.amazonaws.com/'+ ENV['AWS_S3_BUCKET'] + "/" + png_path
+      @message.image = 'https://s3-ap-northeast-1.amazonaws.com/'+ ENV['AWS_S3_BUCKET'] + "/" + png_path
     end
   end
 end
