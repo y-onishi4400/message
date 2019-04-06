@@ -1,0 +1,15 @@
+.c-list {
+  @include fts(14,24);
+
+  a {
+    color: $text-color;
+  }
+}
+.c-list-decimal {
+  @extend .c-list;
+  margin-left: 16px;
+
+  > * {
+    list-style: decimal;
+  }
+}

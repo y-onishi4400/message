@@ -16,13 +16,13 @@
 </head>
 
 <body>
+  <%= render "shared/header" %>
+
   <% if user_signed_in? %>
   <%= link_to new_message_path,  class: "c-link" do %>
   <i class="far fa-edit"></i> 新規登録
   <% end %>
   <% end %>
-
-  <%= render "shared/header" %>
 
   <div class="l-contents">
   <div class="l-contents__inner">

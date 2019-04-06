@@ -30,14 +30,15 @@
   &--primary {
     @extend .c-label;
     span {
-      background: $attention-color;
+      background: $primary-color;
     }
   }
 
   &--secondary {
     @extend .c-label;
-    color: $color-gray-c;
-    border: 1px solid $color-gray-c;
+    span {
+      background: $color-gray-c;
+    }
   }
 
   &--tertiary {

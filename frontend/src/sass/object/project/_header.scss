@@ -1,2 +1,12 @@
 .p-header {
+  width: 100%;
+  text-align: center;
+  padding: 8px 0;
+  background: #fff;
+
+  &__inner {
+    width: 92%;
+    max-width: 600px;
+    margin: 0 auto;
+  }
 }
