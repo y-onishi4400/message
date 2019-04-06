@@ -1,0 +1,116 @@
+.c-input {
+
+  &--area {
+    @extend .c-input;
+    padding: 16px;
+  }
+  &__error-text {
+    margin-top: 8px;
+    color: $attention-color;
+  }
+
+  &__title {
+    color: #fff;
+    padding-bottom: 16px;
+    @include fts(14,14);
+
+    .c-label {
+      margin-left: 8px;
+      display: inline-block;
+    }
+  }
+
+
+  &__item {
+    border-top: 2px solid $color-gray-2;
+    @include fts(16,24);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 16px 12px;
+    position: relative;
+    background: $color-gray-1;
+
+    .item-title {
+      color: $color-gray-c;
+      width: 10em;
+
+      &__supplement-text {
+        display: block;
+        @include fts(10,10);
+        padding-bottom: 8px;
+      }
+    }
+
+    .item-text {
+      text-align: right;
+      width: 7em;
+    }
+
+    i {
+      position: absolute;
+      top: 50%;
+      right: 8px;
+      margin-top: -11px;
+
+      &:before {
+        transform: rotate(180deg);
+        @include fts(12,24);
+      }
+    }
+
+    &-pulldown {
+      @extend .c-input__item;
+
+      i {
+        &:before {
+          transform: rotate(-90deg);
+          @include fts(14,24);
+        }
+      }
+      .item-text {
+        margin-right: 16px;
+        width: 10em;
+      }
+
+      select {
+        color: #fff;
+      }
+    }
+  }
+}
+
+.c-input {
+
+  .input-box {
+    position: relative;
+
+    .c-input__text {
+      text-indent: 78px;
+    }
+
+    &__item {
+      width: 80px;
+      height: 100%;
+      position: absolute;
+      left: 0;
+      top: 0;
+      background: #3e414c;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 24px 0 0 24px;
+
+      i {
+        position: relative;
+        @include fts(18,18);
+        top: 1px;
+        left: 2px;
+      }
+    }
+
+  }
+  .c-label {
+    @include fts(12,12);
+  }
+}

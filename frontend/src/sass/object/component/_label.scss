@@ -1,0 +1,44 @@
+.c-label {
+  padding: 4px 10px;
+  border-radius: 12px;
+  color: #fff;
+  display: inline-block;
+  min-width: 4em;
+  text-align: center;
+
+
+  &.is-active {
+    background: $accent-color--primary;
+    border: none;
+  }
+
+
+  i {
+    margin-right: 4px;
+    position: relative;
+    top: 1px;
+
+    &:before {
+      @include fts(18,18);
+    }
+
+  }
+
+  &--primary {
+    @extend .c-label;
+    background: $attention-color;
+  }
+
+  &--secondary {
+    @extend .c-label;
+    color: $color-gray-c;
+    border: 1px solid $color-gray-c;
+  }
+
+  &--tertiary {
+    @include fts(14,14);
+    @extend .c-label;
+    color: #fff;
+    border: 1px solid #fff;
+  }
+}

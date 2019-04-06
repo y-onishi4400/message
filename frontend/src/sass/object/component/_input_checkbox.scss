@@ -1,0 +1,45 @@
+.c-input {
+
+  &__checkbox {
+
+    display: none;
+
+    &:checked {
+      + .c-input__checkbox-text {
+        &::after {
+          content: "";  
+          display: block;
+          position: absolute;
+          top: 1px;
+          left: 7px;
+          width: 4px;
+          height: 10px;
+          transform: rotate(40deg);
+          border-bottom: 2px solid #fff;
+          border-right: 2px solid #fff;
+        }
+      }
+    }
+  }
+
+  &__checkbox-text {
+    cursor: pointer;
+    color: #fff;
+    padding-left: 28px;
+    @include fts(14,14);
+    position: relative;
+
+    &::before {
+      content: "";
+      display: block;
+      position: absolute;
+      top: -2px;
+      left: 0;
+      width: 20px;
+      height: 20px;
+      background: $color-gray-6;
+      border-radius: 50%;
+      cursor: pointer;
+    }
+  }
+}

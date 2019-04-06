@@ -1,0 +1,155 @@
+.c-switch {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+
+  &__lable {
+    width: 50px;
+    position: relative;
+    display: inline-block;
+  }
+
+  &__input {
+    display: none;
+  }
+
+  &__content {
+    display: block;
+    cursor: pointer;
+    position: relative;
+    border-radius: 30px;
+    height: 31px;
+    overflow: hidden;
+
+    &::before,
+    &::after {
+      content: "";
+      display: block;
+      position: absolute;
+      width: 0;
+      height: 0;
+      border-radius: 30px;
+    }
+
+    &:before {
+      width: calc(100% - 3px);
+      height: calc(100% - 3px);
+      border: 1.5px solid #E5E5EA;
+      background: #ffffff;
+    }
+
+    &:after {
+      top: 50%;
+      left: 50%;
+      transition: all .3s;
+    }
+  }
+
+  &__item {
+    display: block;
+    top: 2px;
+    left: 2px;
+    position: absolute;
+    box-shadow: 0 2px 6px $color-gray-6;
+    width: 27px;
+    height: 27px;
+    border-radius: 20px;
+    background: #ffffff;
+    transition: all .3s;
+  }
+
+  &--circle {
+    @extend .c-switch;
+  }
+
+  &--square {
+    @extend .c-switch;
+
+    .c-switch__content {
+      border-radius: 4px;
+      height: 24px;
+
+      &::before {
+        width: calc(100% - 3px);
+        height: calc(100% - 3px);
+        top: 0;
+        left: 0;
+        color: $color-gray-2;
+        border-radius: 4px;
+        background: $color-gray-e;
+      }
+
+      &::after {
+        width: 0;
+        height: 0;
+        border-radius: 6px;
+      }
+    }
+
+    .c-switch__item {
+      top: -1px;
+      left: 0;
+      width: 16px;
+      height: 24px;
+      border-radius: 4px;
+    }
+
+    .c-switch__input:checked ~ .c-switch__item {
+      left: 34px;
+    }
+  }
+
+
+  &--light {
+    @extend .c-switch;
+
+    .c-switch__content {
+      height: 20px;
+      border: 1.5px solid #ffffff;
+      background: #ffffff;
+
+      &:before {
+        width: calc(100% - 4px);
+        height: calc(100% - 4px);
+        top: 0;
+        left: 0;
+        border: 1.5px solid #ffffff;
+        border-radius: 20px;
+      }
+
+      &:after {
+        width: 0;
+        height: 100%;
+        top: 0;
+        left: 0;
+        border-radius: 20px;
+      }
+    }
+
+    .c-switch__item {
+      top: 5px;
+      left: 5px;
+      width: 10px;
+      height: 10px;
+      border-radius: 10px;
+    }
+
+    .c-switch__input:checked ~ .c-switch__item {
+      left: 34px;
+    }
+  }
+}
+
+
+
+.c-switch__input:checked ~ .c-switch__item {
+  left: 21px;
+}
+
+.c-switch__input:checked ~ .c-switch__content:after {
+  background: $secondary-color;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}

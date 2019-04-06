@@ -1,0 +1,68 @@
+@mixin widtn-percent( $parentPxWidth, $pxWidth ){
+  width: ceil((( $pxWidth / $parentPxWidth ) * 10000% )) / 100;
+}
+
+//claerfix
+@mixin cf() {
+  *zoom: 1;
+
+  &:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+}
+
+//センター配置
+@mixin center() {
+  margin-right: auto;
+  margin-left: auto;
+}
+
+@mixin fts($fts, $lin: 24) {
+  $rem: $fts / 10;
+  $linS: $lin / $fts;
+  font-size: #{$fts}px;
+  font-size: #{$rem}rem;
+  line-height: $linS;
+}
+
+@mixin shadow() {
+  box-shadow: 0 1px 1px 0 $color-gray-6;
+}
+@mixin gradient-primary() {
+  background-image: linear-gradient(-135deg, $secondary-color 0%, $primary-color 100%);
+}
+
+// Responsive Mixins
+@mixin respond($media) {
+  @if $media == pc {
+    @media print, screen and (min-width: $sm-device-width) { @content; }
+  }
+  @else if $media == sm {
+    @media print, screen and (max-width: $sm-device-width) { @content; }
+  }
+}
+
+@mixin transition-opacity() {
+  transition: .2s;
+  &:hover {
+    opacity: .8;
+  }
+
+}
+@mixin transition-background-color($color) {
+  transition: .2s;
+
+  &:hover {
+    background: $color;
+  }
+}
+
+@mixin transition-text-color($color) {
+  transition: .2s;
+  
+  &:hover {
+    color: $color;
+  }
+}

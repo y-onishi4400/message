@@ -1,0 +1,40 @@
+.c-input {
+  &__radio {
+    cursor: pointer;
+    &:checked {
+      + label {
+        &::after {
+          content: "";  
+          display: block;
+          position: absolute;
+          top: 2px;
+          left: 5px;
+          width: 11px;
+          height: 11px;
+          background: $primary-color;
+          border-radius: 50%;
+        }
+      }
+    }
+  }
+
+  &__radio-text {
+    color: #fff;
+    padding-left: 24px;
+    @include fts(14,14);
+    position: relative;
+    cursor: pointer;
+
+    &::before {
+      content: "";
+      display: block;
+      position: absolute;
+      top: -2px;
+      left: 0;
+      width: 20px;
+      height: 20px;
+      background: $color-gray-6;
+      border-radius: 50%;
+    }
+  }
+}

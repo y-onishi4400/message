@@ -1,0 +1,13 @@
+.c-input {
+  
+  &__text {
+    width: 100%;
+    color: $color-gray-c;
+    background: $color-gray-6;
+    border-radius: 24px;
+    padding: 8px 16px;
+    @include fts(14,24);
+    display: block;
+    overflow: hidden;
+  }
+}

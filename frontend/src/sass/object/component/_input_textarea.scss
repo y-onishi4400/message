@@ -1,0 +1,8 @@
+.c-input {
+
+  &__textarea {
+    @extend .c-input__text;
+    height: 100px;
+    @include fts(14,24);
+  }
+}
