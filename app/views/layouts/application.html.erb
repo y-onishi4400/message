@@ -21,10 +21,14 @@
   <i class="far fa-edit"></i> 新規登録
   <% end %>
   <% end %>
+
+  <%= render "shared/header" %>
+
   <div class="l-contents">
   <div class="l-contents__inner">
     <%= yield %>
   </div>
+  <%= render "shared/footer" %>
   </div>
 </body>
 </html>
