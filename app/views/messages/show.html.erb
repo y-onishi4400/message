@@ -1,17 +1,25 @@
-<h3 class="c-batch--secondary">
-	<span>届いたリクエスト</span>
-</h3>
+<h1 class="c-label--primary">
+  <span>受付中</span>
+</h1>
 
-<div class="c-message">
-	<div class="c-message__item">
-		<div class="c-message__item__link">
-			<% if @message.image.present? %>
-	    <%= image_tag @message.image, alt: @message.text %>
-	    <% end %>
-			<a class="p-sns--twitter" href="http://twitter.com/intent/tweet?url=<%= root_url(only_path: false) %>messages/<%= @message.url_token %>&text=<%= @message.text %>&hashtags=example%2Cdemo" onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=300,width=600');return false;" sl-processed="1">tweet</a>
-		</div>
+<% if @message.image.present? %>
+
+<div class="c-item">
+
+	<% if !@message.is_public %><div class="c-batch">未</div><% end %>
+	<%= image_tag @message.image, alt: @message.text %>
+
+	<div class="c-item__inner">
+
+		<% if current_user == @message.author %>
+		<%= link_to edit_message_path(@message),  class: "c-link" do %>
+		<i class="far fa-edit"></i> 編集する
+		<% end %>
+		<% end %>
+		<a class="c-button--primary" href="http://twitter.com/intent/tweet?url=<%= root_url(only_path: false) %>@messages/<%= @message.url_token %>&text=<%= @message.text %>&hashtags=example%2Cdemo" onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=300,width=600');return false;" sl-processed="1"><i class="fab fa-twitter"></i> Tweet</a>
+		<%= link_to :back,  class: "c-button--default" do %>戻る<% end %>
 	</div>
 </div>
+<% end %>
 
-<%= link_to '戻る', :back %>
 

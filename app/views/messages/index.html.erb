@@ -1,19 +1,34 @@
-<h1>messges</h1>
+<h1 class="c-label--primary">
+  <span>受付中</span>
+</h1>
 
 <% if @messages.present? %>
-  <% @messages.each do |message| %>
-  <% if !message.is_public %>未公開<% end %><br>
-    <%= link_to message_path(message), class: "c-message__item__link" do %>
-      <% if message.image.present? %>
-        <%= image_tag message.image, alt: message.text %>
-      <% end %>
 
-      <% if current_user == message.author %>
-        <%= link_to "編集する", edit_message_path(message) %><br>
-      <% end %>
+  <% @messages.each do |message| %>
+  <div class="c-item">
+
+    <% if !message.is_public %><div class="c-batch">未</div><% end %>
+    <%= link_to message_path(message), class: "c-thumbnail" do %>
+    <% if message.image.present? %>
+    <%= image_tag message.image, alt: message.text %>
+    <% end %>
     <% end %>
 
-    <a class="c-button--primary" href="http://twitter.com/intent/tweet?url=<%= root_url(only_path: false) %>messages/<%= message.url_token %>&text=<%= message.text %>&hashtags=example%2Cdemo" onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=300,width=600');return false;" sl-processed="1"><i class="fab fa-twitter"></i> Tweet</a>
+    <div class="c-item__inner">
+
+      <% if current_user == message.author %>
+      <%= link_to edit_message_path(message),  class: "c-link" do %>
+      <i class="far fa-edit"></i> 編集する
+      <% end %>
+      <% end %>
+
+      <%= link_to message_path(message),  class: "c-link" do %>
+      <i class="fas fa-caret-right"></i> 詳細へ
+      <% end %>
+
+      <a class="c-button--primary" href="http://twitter.com/intent/tweet?url=<%= root_url(only_path: false) %>messages/<%= message.url_token %>&text=<%= message.text %>&hashtags=example%2Cdemo" onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=300,width=600');return false;" sl-processed="1"><i class="fab fa-twitter"></i> Tweet</a>
+    </div>
+  </div>
 
   <% end %>
-<% end %>
+  <% end %>

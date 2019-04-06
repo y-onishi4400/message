@@ -1,24 +1,30 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>AppName</title>
-    <%= csrf_meta_tags %>
-    <%= csp_meta_tag %>
+<head>
+  <title>AppName</title>
+  <%= csrf_meta_tags %>
+  <%= csp_meta_tag %>
 
-    <link href="https://fonts.googleapis.com/css?family=Noto+Sans+JP" rel="stylesheet">
-    <link rel="stylesheet" href="//use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
-    <meta name="viewport" content="width=device-width,initial-scale=1.0">
-    <meta name="format-detection" content="telephone=no">
-    <meta name="skype_toolbar" content="skype_toolbar_parser_compatible">
+  <link href="https://fonts.googleapis.com/css?family=Noto+Sans+JP" rel="stylesheet">
+  <link rel="stylesheet" href="//use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <meta name="format-detection" content="telephone=no">
+  <meta name="skype_toolbar" content="skype_toolbar_parser_compatible">
 
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-  </head>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+</head>
 
-  <body>
-    <% if user_signed_in? %>
-    <%= link_to "新規登録", new_message_path %>
-    <% end %>
+<body>
+  <% if user_signed_in? %>
+  <%= link_to new_message_path,  class: "c-link" do %>
+  <i class="far fa-edit"></i> 新規登録
+  <% end %>
+  <% end %>
+  <div class="l-contents">
+  <div class="l-contents__inner">
     <%= yield %>
-  </body>
+  </div>
+  </div>
+</body>
 </html>

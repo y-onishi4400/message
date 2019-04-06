@@ -70,7 +70,7 @@ body {
   background: #eee; }
 
 a {
-  color: #eee; }
+  color: #1d1e22; }
 
 a,
 a:active {
@@ -124,7 +124,7 @@ img {
   /* Firefox */
   color: #fff; }
 
-.c-button, .c-button--primary {
+.c-button, .c-button--primary, .c-button--default {
   position: relative;
   display: block;
   width: 100%;
@@ -136,10 +136,12 @@ img {
   z-index: 0;
   transition: .2s;
   padding: 12px 16px;
-  min-height: 40px; }
-  .c-button input[type="button"], .c-button--primary input[type="button"],
+  min-height: 40px;
+  color: #fff; }
+  .c-button input[type="button"], .c-button--primary input[type="button"], .c-button--default input[type="button"],
   .c-button input[type="submit"],
-  .c-button--primary input[type="submit"] {
+  .c-button--primary input[type="submit"],
+  .c-button--default input[type="submit"] {
     position: absolute;
     width: 100% !important;
     height: 100% !important;
@@ -147,32 +149,35 @@ img {
     left: 0;
     top: 0;
     padding: 0 4px; }
-  .c-button:hover:before, .c-button--primary:hover:before {
+  .c-button:hover:before, .c-button--primary:hover:before, .c-button--default:hover:before {
     opacity: 0; }
-  .c-button::before, .c-button--primary::before, .c-button::after, .c-button--primary::after {
+  .c-button::before, .c-button--primary::before, .c-button--default::before, .c-button::after, .c-button--primary::after, .c-button--default::after {
     content: "";
     position: absolute;
     width: 100%;
     height: 100%;
     border-radius: 8px; }
-  .c-button::before, .c-button--primary::before {
+  .c-button::before, .c-button--primary::before, .c-button--default::before {
     z-index: -1;
     top: 0;
     left: 0;
     transition: .2s; }
-  .c-button::after, .c-button--primary::after {
+  .c-button::after, .c-button--primary::after, .c-button--default::after {
     z-index: -2;
     top: 0;
     left: 0;
     border-radius: 8px; }
 
 .c-button--primary {
-  box-shadow: 0 2px 4px rgba(194, 194, 194, 0.2);
-  color: #000; }
+  box-shadow: 0 2px 4px rgba(194, 194, 194, 0.2); }
   .c-button--primary::before {
-    background-image: linear-gradient(-135deg, #ffcf00 0%, #ffe700 100%); }
+    background-image: linear-gradient(-135deg, #009ec2 0%, #001c46 100%); }
   .c-button--primary::after {
-    background-image: linear-gradient(-135deg, #ffe700 0%, #ffcf00 100%); }
+    background-image: linear-gradient(-135deg, #001c46 0%, #009ec2 100%); }
+
+.c-button--default {
+  color: #1d1e22;
+  background: #eee; }
 
 .c-input__checkbox {
   display: none; }
@@ -256,7 +261,7 @@ img {
     left: 5px;
     width: 11px;
     height: 11px;
-    background: #ffe700;
+    background: #001c46;
     border-radius: 50%; }
 
 .c-input__radio-text {
@@ -385,13 +390,31 @@ img {
   font-size: 1.2rem;
   line-height: 1; }
 
+.c-item {
+  margin: 40px 0 0;
+  padding: 24px;
+  background: #fff; }
+  .c-item__inner {
+    margin: 24px 0 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-end; }
+    .c-item__inner .c-button--primary {
+      margin: 16px 0 0; }
+    .c-item__inner .c-button--default {
+      margin: 16px 0 0; }
+
 .c-label, .c-label--primary, .c-label--secondary, .c-label--tertiary {
-  padding: 4px 10px;
-  border-radius: 12px;
   color: #fff;
-  display: inline-block;
   min-width: 4em;
-  text-align: center; }
+  text-align: center;
+  font-size: 14px;
+  font-size: 1.4rem;
+  line-height: 1; }
+  .c-label span, .c-label--primary span, .c-label--secondary span, .c-label--tertiary span {
+    padding: 4px 16px;
+    border-radius: 12px;
+    display: inline-block; }
   .c-label.is-active, .is-active.c-label--primary, .is-active.c-label--secondary, .is-active.c-label--tertiary {
     background: #ff6d6d;
     border: none; }
@@ -403,7 +426,7 @@ img {
       font-size: 18px;
       font-size: 1.8rem;
       line-height: 1; }
-  .c-label--primary {
+  .c-label--primary span {
     background: #ff5533; }
   .c-label--secondary {
     color: #ccc;
@@ -512,8 +535,24 @@ img {
   left: 21px; }
 
 .c-switch__input:checked ~ .c-switch__content:after {
-  background: #ffcf00;
+  background: #009ec2;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%; }
+
+.l-contents {
+  position: relative; }
+  .l-contents--secondary {
+    background: #2a2c32; }
+  .l-contents__inner {
+    padding: 24px 0 32px;
+    max-width: 768px;
+    margin-right: auto;
+    margin-left: auto; }
+  .l-contents__item {
+    background: #2a2c32;
+    padding-bottom: 32px;
+    max-width: 768px;
+    margin-right: auto;
+    margin-left: auto; }

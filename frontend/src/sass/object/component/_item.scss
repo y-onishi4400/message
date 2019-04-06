@@ -1,0 +1,20 @@
+.c-item {
+  margin: 40px 0 0;
+  padding: 24px;
+  background: #fff;
+
+  &__inner {
+    margin: 24px 0 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+
+    .c-button--primary {
+      margin: 16px 0 0;
+    }
+
+    .c-button--default {
+      margin: 16px 0 0;
+    }
+  }
+}

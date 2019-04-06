@@ -1,11 +1,14 @@
 .c-label {
-  padding: 4px 10px;
-  border-radius: 12px;
   color: #fff;
-  display: inline-block;
   min-width: 4em;
   text-align: center;
+  @include fts(14,14);
 
+  span {
+    padding: 4px 16px;
+    border-radius: 12px;
+    display: inline-block;
+  }
 
   &.is-active {
     background: $accent-color--primary;
@@ -26,7 +29,9 @@
 
   &--primary {
     @extend .c-label;
-    background: $attention-color;
+    span {
+      background: $attention-color;
+    }
   }
 
   &--secondary {
