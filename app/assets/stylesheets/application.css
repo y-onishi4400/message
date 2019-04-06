@@ -133,6 +133,9 @@ img {
     max-width: 768px;
     margin-right: auto;
     margin-left: auto; }
+    @media print, screen and (max-width: 767px) {
+      .l-contents__inner {
+        margin: 0 16px; } }
   .l-contents__item {
     background: #2a2c32;
     padding-bottom: 32px;
@@ -610,3 +613,30 @@ img {
     width: 92%;
     max-width: 600px;
     margin: 0 auto; }
+
+.p-pager {
+  text-align: center;
+  margin-top: 40px;
+  font-size: 12px;
+  font-size: 1.2rem;
+  line-height: 1; }
+  .p-pager .previous_page,
+  .p-pager .next_page,
+  .p-pager .current,
+  .p-pager a {
+    margin: 0 2px;
+    text-align: center;
+    border-radius: 40px;
+    border: 1px solid #ededed;
+    color: #444750;
+    background: #ffffff;
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+    line-height: 40px; }
+  .p-pager .previous_page {
+    border-left: 1px solid #dcd1c0; }
+  .p-pager .disabled {
+    display: none; }
+  .p-pager .current {
+    background: #ededed; }

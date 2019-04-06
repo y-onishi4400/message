@@ -9,6 +9,10 @@
     padding: 24px 0 32px;
     max-width: 768px;
     @include center;
+
+    @include respond(sm) {
+      margin: 0 16px;
+    }
   }
 
   &__item {
