@@ -61,7 +61,7 @@
 
 @mixin transition-text-color($color) {
   transition: .2s;
-  
+
   &:hover {
     color: $color;
   }
