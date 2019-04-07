@@ -2,7 +2,7 @@ html, body {
   height: 100%;
   margin: 0;
   padding: 0;
-  background: $color-gray-e;
+  background: #F5F6F9;
 }
 
 body {
@@ -10,12 +10,12 @@ body {
   line-height: 1.6;
   font-size: 14px;
   word-wrap : break-word;
-  color: $color-gray-1;
-  background: $color-gray-e;
+  color: $text-color;
+  background: #F5F6F9;
 }
 
 a {
-  color: $color-gray-1;
+  color: $text-color;
 }
 a,
 a:active {

@@ -11,12 +11,13 @@
   &--small {
     margin: 40px 0 0;
     display: flex;
+    flex-wrap: wrap;
     justify-content: center;
     align-items: center;
 
     li {
       @include fts(12,12);
-      margin: 0 8px;
+      margin: 8px;
     }
   }
 

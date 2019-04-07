@@ -86,17 +86,17 @@ class MessagesController < ApplicationController
         sentense += "\n" if n != i+1
       end
       # ⑨-4 文字サイズの指定
-      pointsize = 90
+      pointsize = 30
     elsif content.length <= 50 then
-      n = (content.length / 10).floor + 1
+      n = (content.length / 14).floor + 1
       n.times do |i|
-        s_num = i * 10
+        s_num = i * 14
         f_num = s_num + 9
         range =  Range.new(s_num,f_num)
         sentense += content.slice(range)
         sentense += "\n" if n != i+1
       end
-      pointsize = 60
+      pointsize = 30
     else
       n = (content.length / 15).floor + 1
       n.times do |i|
@@ -106,7 +106,7 @@ class MessagesController < ApplicationController
         sentense += content.slice(range)
         sentense += "\n" if n != i+1
       end
-      pointsize = 45
+      pointsize = 30
     end
 
     # ⑨-5 文字色の指定

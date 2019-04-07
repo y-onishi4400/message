@@ -26,9 +26,10 @@
       <i class="fas fa-caret-right"></i> 詳細へ
       <% end %>
 
-      <a class="c-button--primary" href="http://twitter.com/intent/tweet?url=<%= root_url(only_path: false) %>messages/<%= message.url_token %>&text=<%= message.text %>&hashtags=example%2Cdemo" onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=300,width=600');return false;" sl-processed="1"><i class="fab fa-twitter"></i> Tweet</a>
+      <a class="c-button--primary" href="http://twitter.com/intent/tweet?url=<%= root_url(only_path: false) %>messages/<%= message.url_token %>&text=<%= message.text %>&hashtags=PATEN.me%2Cパテン" onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=300,width=600');return false;" sl-processed="1"><i class="fab fa-twitter"></i> Twitterで回答する</a>
     </div>
   </div>
-
   <% end %>
+
+  <%= will_paginate @messages, :class => 'p-pager' %>
   <% end %>
